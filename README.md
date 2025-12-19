@@ -42,11 +42,9 @@ def ajustar_waypoints(path, distancia_objetivo, resolution, origin):
 ### 2. Implementación de Dijkstra
 Se modificó el bloque principal (if __name__ == "__main__":) del script f1tenth_map.py para adaptar la planificación al entorno específico de BrandsHatch. Los cambios principales incluyen:
 
-    Selección del Algoritmo: Se configuró el SearchFactory para inicializar el planificador con el algoritmo dijkstra.
-
-    Carga del Entorno: Se actualizó la ruta del archivo de configuración a BrandsHatch_map.yaml para cargar la geometría real del circuito.
-
-    Definición de Coordenadas: Se establecieron puntos de inicio (x_start, y_start) y meta (x_goal, y_goal) dentro de los límites de la pista para asegurar una convergencia exitosa del algoritmo.
+* **Selección del Algoritmo:** Se configuró el SearchFactory para inicializar el planificador con el algoritmo dijkstra.
+* **Carga del Entorno:** Se actualizó la ruta del archivo de configuración a BrandsHatch_map.yaml para cargar la geometría real del circuito.
+* **Definición de Coordenadas:** Se establecieron puntos de inicio (x_start, y_start) y meta (x_goal, y_goal) dentro de los límites de la pista para asegurar una convergencia exitosa del algoritmo.
 
     
 ```bash
