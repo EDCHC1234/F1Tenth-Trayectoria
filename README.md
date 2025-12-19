@@ -75,6 +75,28 @@ Dado que los algoritmos basados en rejilla (Grid-based) generan puntos dependien
 * **Prueba A:** Generación de un archivo `.csv` con waypoints separados exactamente **0.5 metros**.
 * **Prueba B:** Generación de un archivo `.csv` con waypoints separados exactamente **1.0 metro**.
 
+
+```bash
+if path:
+        # GENERAR Y GUARDAR TRAYECTORIA 0.5m
+        path_05 = ajustar_waypoints(path, 0.5, resolution, origin)
+        with open("dijkstra_05m.csv", "w") as f:
+            f.write("x,y\n")
+            for p in path_05: f.write(f"{p[0]},{p[1]}\n")
+        print(f"Archivo 0.5m guardado ({len(path_05)} puntos)")
+
+        # GENERAR Y GUARDAR TRAYECTORIA 1.0m
+        path_10 = ajustar_waypoints(path, 1.0, resolution, origin)
+        with open("dijkstra_10m.csv", "w") as f:
+            f.write("x,y\n")
+            for p in path_10: f.write(f"{p[0]},{p[1]}\n")
+        print(f"Archivo 1.0m guardado ({len(path_10)} puntos)")
+
+        # Mostrar animación final
+        planner.plot.animation(path, "Dijkstra BrandsHatch", cost)
+    else:
+        print("No se encontró ruta.")
+```
 ---
 
 ## 📊 Resultados Visuales
