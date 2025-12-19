@@ -40,8 +40,37 @@ def ajustar_waypoints(path, distancia_objetivo, resolution, origin):
 ```
  
 ### 2. Implementación de Dijkstra
-Se utilizó la clase `Dijkstra` heredada de `AStar` para encontrar la ruta óptima.
-* **Optimización:** Se desactivó la renderización frame a frame durante el cálculo para reducir el tiempo de ejecución en un 80%.
+Se modificó el bloque principal (if __name__ == "__main__":) del script f1tenth_map.py para adaptar la planificación al entorno específico de BrandsHatch. Los cambios principales incluyen:
+
+    Selección del Algoritmo: Se configuró el SearchFactory para inicializar el planificador con el algoritmo dijkstra.
+
+    Carga del Entorno: Se actualizó la ruta del archivo de configuración a BrandsHatch_map.yaml para cargar la geometría real del circuito.
+
+    Definición de Coordenadas: Se establecieron puntos de inicio (x_start, y_start) y meta (x_goal, y_goal) dentro de los límites de la pista para asegurar una convergencia exitosa del algoritmo.
+
+    
+```bash
+if __name__ == "__main__":
+    HERE = Path(__file__).resolve().parent
+    yaml_path = HERE.parent / "Mapas-F1Tenth" / "BrandsHatch_map.yaml"
+    downsample_factor = 4 # Ajusta este valor según lo que necesites
+
+    x_start, y_start = -5.0, -10.0
+    x_goal, y_goal = 40.0, -80.0
+
+    map_bin, resolution, origin = load_map(yaml_path, downsample_factor)
+    env = grid_from_map(map_bin)
+
+    start = world_to_map(x_start, y_start, resolution, origin)
+    goal = world_to_map(x_goal, y_goal, resolution, origin)
+
+    print(f"Start (map): {start}, Goal (map): {goal}")
+    planner = SearchFactory()("dijkstra", start=start, goal=goal, env=env)
+    planner.run()
+
+    cost, path, _ = planner.plan()
+```
+
 
 ### 3. Generación de Waypoints (0.5m y 1.0m)
 Dado que los algoritmos basados en rejilla (Grid-based) generan puntos dependientes del tamaño de la celda, se implementó una **función de interpolación lineal** (`ajustar_waypoints`) para garantizar la separación exacta exigida:
