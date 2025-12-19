@@ -10,8 +10,8 @@ Este repositorio contiene la implementación y comparación de algoritmos de pla
 Para cumplir con los requerimientos de la tarea (Parte A), se modificó el script de ejecución principal `f1tenth_map.py` y se integraron funciones de procesamiento de trayectorias.
 
 ### 1. Configuración del Entorno (BrandsHatch)
-* **Mapa:** Se configuró la carga del archivo `BrandsHatch_map.yaml` con una resolución de **0.05005 m/px**.
-* **Resolución de Rejilla:** Se utilizó un `downsample_factor = 5` para optimizar la velocidad de cómputo sin comprometer la integridad de las paredes del circuito.
+* **Mapa:** Se configuró la carga del archivo `BrandsHatch_map.yaml`.
+* **Resolución de Rejilla:** Se utilizó un `downsample_factor = 4.
 * **Binarización:** Se ajustó el umbral de detección de obstáculos para asegurar que las líneas delgadas de la pista fueran detectadas correctamente por el algoritmo.
 
 ### 2. Implementación de Dijkstra
