@@ -38,7 +38,6 @@ Antes de la linea: if __name__ == "__main__":, se aagrego el siguiente código
             nuevo_path.append(p_actual.copy())
             
     return nuevo_path
-´´´
 
 ### 2. Implementación de Dijkstra
 Se utilizó la clase `Dijkstra` heredada de `AStar` para encontrar la ruta óptima.
