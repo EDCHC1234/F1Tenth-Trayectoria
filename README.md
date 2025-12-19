@@ -15,9 +15,8 @@ Para cumplir con los requerimientos de la tarea (Parte A), se modificó el scrip
 * **Binarización:** Se ajustó el umbral de detección de obstáculos para asegurar que las líneas delgadas de la pista fueran detectadas correctamente por el algoritmo.
 
 Antes de la linea: if __name__ == "__main__":, se aagrego el siguiente código
-
-   ```bash
-   def ajustar_waypoints(path, distancia_objetivo, resolution, origin):
+```bash
+def ajustar_waypoints(path, distancia_objetivo, resolution, origin):
     if not path: return []
     path_metros = []
     for x_map, y_map in reversed(path):
@@ -38,7 +37,8 @@ Antes de la linea: if __name__ == "__main__":, se aagrego el siguiente código
             nuevo_path.append(p_actual.copy())
             
     return nuevo_path
-
+```
+ 
 ### 2. Implementación de Dijkstra
 Se utilizó la clase `Dijkstra` heredada de `AStar` para encontrar la ruta óptima.
 * **Optimización:** Se desactivó la renderización frame a frame durante el cálculo para reducir el tiempo de ejecución en un 80%.
