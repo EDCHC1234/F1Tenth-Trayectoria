@@ -103,7 +103,7 @@ if path:
 
 | Algoritmo | Distancia Waypoints | Visualización |
 | :--- | :--- | :--- |
-| **Dijkstra** | 0.5 m | ![Dijkstra 0.5m](/home/daniel08/planning.png) |
+| **Dijkstra** | 0.5 m | ![Dijkstra 0.5m](https://github.com/EDCHC1234/F1Tenth-Trayectoria/blob/main/Figure_1.png) |
 | **Dijkstra** | 1.0 m | ![Dijkstra 1.0m](enlace_a_tu_imagen_10) |
 
 > **Nota:** El área gris representa el espacio de búsqueda expandido por el algoritmo antes de converger en la ruta óptima (línea verde).
